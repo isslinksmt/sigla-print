@@ -1,2 +1,44 @@
-logging.config: classpath:logback-local.xml
+spring:
+  jpa:
+    hibernate.ddl-auto: none # update per generazione schema
+    properties:
+      hibernate.dialect: org.hibernate.dialect.Oracle10gDialect
+      hibernate.connection.autocommit: false
+  mail:
+    host: smtp.gmail.com
+    username: ${EMAIL_USERNAME}
+    password: ${EMAIL_PASSWORD}
+    from: ${EMAIL_FROM}
+    port: 587
+    smtp:
+      auth: true
+      starttls:
+        enable: true
+  datasource:
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
+    driverClassName: oracle.jdbc.OracleDriver
 
+print:
+  output.dir: ${OUTPUT_DIR}
+  server.url: ${SERVER_URL}
+  scheduler: 5000
+  deletecron: 0 0 2 1/1 * ?
+  queue.priorita: ${QUEUE_PRIORITA}
+  max.page.size: 1000
+  virtualizer.enable: true
+cnr:
+  fs:
+    path: ${FS_PATH}
+  github:
+    token: ${GIT_TOKEN}
+    repo: ${GIT_REPO}
+    branch: ${GIT_PASSWORD}
+  cache:
+    hazelcast:
+      packages: it.cnr
+logging.config: classpath:logback-local.xml
+dir.image: ${DIR_IMAGE}
+server:
+  port : 8080
