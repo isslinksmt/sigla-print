@@ -40,7 +40,7 @@ public class GitHubConfiguration {
 
     @Bean
     public Github createGithub() {
-        return new RtGithub();
+        return new RtGithub(gitHubConfigurationProperties.getToken());
     }
 
     @Bean
