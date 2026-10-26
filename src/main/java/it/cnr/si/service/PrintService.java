@@ -160,11 +160,6 @@ public class PrintService implements InitializingBean {
             defaultJasperReportsContext.setProperty("net.sf.jasperreports.awt.ignore.missing.font", "true");
             defaultJasperReportsContext.setProperty("net.sf.jasperreports.default.pdf.font.name", TIMES_NEW_ROMAN);
             defaultJasperReportsContext.setProperty("net.sf.jasperreports.default.font.name", TIMES_NEW_ROMAN);
-            // Molti report usano i font standard del PDF (pdfFontName="Times-Roman", non incorporati)
-            // senza dichiarare un pdfEncoding: con la codifica di default il simbolo dell'euro non e'
-            // rappresentabile e in stampa esce "?". Cp1252 lo contiene.
-            defaultJasperReportsContext.setProperty("net.sf.jasperreports.default.pdf.encoding", "Cp1252");
-
             JasperReportsContext jasperReportsContext = new CacheAwareJasperReportsContext(defaultJasperReportsContext);
             JasperFillManager jasperFillManager = JasperFillManager.getInstance(jasperReportsContext);
             if (reportDataSource.isPresent()) {
