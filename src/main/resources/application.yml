@@ -40,5 +40,5 @@ cnr:
       packages: it.cnr
 logging.config: classpath:logback-local.xml
 dir.image: ${DIR_IMAGE}
-server:
+server: 
   port : 8080
